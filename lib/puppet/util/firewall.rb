@@ -106,6 +106,8 @@ module Puppet::Util::Firewall
   #     It will return nil which is equivilent to not specifying an address
   #
   def host_to_ip(value)
+    # silly hack to just keep dotted quad untouched
+    return value if value.match /\/\d{0,3}\./
     begin
       value = Puppet::Util::IPCidr.new(value)
     rescue
