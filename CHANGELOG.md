@@ -1,3 +1,20 @@
+##2015-05-12 - Supported Release 1.6.0
+###Summary
+
+This release includes support for TEE, MSS, the time ipt module, Debian 8 support, and a number of test fixes and other improvements.
+
+####Features
+- Add TEE support
+- Add MSS support
+- Add support for the time ipt module (-m time)
+- Add support for Debian 8
+- Add support for ICMPv6 types 'neighbour-{solicitation,advertisement}'
+- Add support for ICMPv6 type 'too-big'
+
+####Bugfixes
+- Fix for Systemd-based OSes where systemd needs restarted before being able to pick up new services (MODULES-1984)
+- Arch Linux package management fix
+
 ##2015-03-31 - Supported Release 1.5.0
 ###Summary
 
