@@ -439,8 +439,10 @@ Puppet::Type.type(:firewall).provide :iptables, :parent => Puppet::Provider::Fir
         m = hash[prop].match(/^(!?)\s?(.*)/)
         neg = "! " if m[1] == "!"
         if [:source,:destination].include?(prop)
-          # Normalise all rules to CIDR notation.
-          hash[prop] = "#{neg}#{Puppet::Util::IPCidr.new(m[2]).cidr}"
+          # Normalise all rules to CIDR notation. -- NO THATS STUPID
+          #hash[prop] = "#{neg}#{Puppet::Util::IPCidr.new(m[2]).cidr}"
+          # Temporary work around for lack of complex mask support
+          hash[prop] = "#{neg}#{m[2]}"
         else
           hash[prop] = "#{neg}#{m[2]}"
         end
