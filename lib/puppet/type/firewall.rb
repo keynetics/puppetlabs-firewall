@@ -365,11 +365,24 @@ Puppet::Type.newtype(:firewall) do
   
   newproperty(:helper) do
     desc <<-EOS
-      The specific helper to use for this rule. By default this is
-      *tftp*.
+      The specific helper to use for this rule. You must also have enabled the
+      corresponding kernel module.
+
+      Can be one of:
+
+      NAME          KERNEL MODULE
+      * amanda      nf_contrack_amanda
+      * ftp         nf_conntrack_ftp
+      * irc         nf_conntrack_irc
+      * netbois-ns  nf_conntrack_netbios_ns
+      * pptp        nf_conntrack_pptp
+      * sane        nf_conntrack_sane
+      * sip         nf_conntrack_sip
+      * snmp        nf_conntrack_snmp
+      * tftp        nf_conntrack_tftp
     EOS
 
-    newvalues(*[:tftp, :ftp].collect do |helper|
+    newvalues(*[:amanda, :ftp, :irc, :netbios-ns, :pptp, :sane, :sip, :snmp, :tftp].collect do |helper|
       [helper, "! #{helper}".to_sym]
     end.flatten)
   end
