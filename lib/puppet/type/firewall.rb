@@ -382,7 +382,7 @@ Puppet::Type.newtype(:firewall) do
       * tftp        nf_conntrack_tftp
     EOS
 
-    newvalues(*[:amanda, :ftp, :irc, :netbios-ns, :pptp, :sane, :sip, :snmp, :tftp].collect do |helper|
+    newvalues(*[:amanda, :ftp, :irc, :'netbios-ns', :pptp, :sane, :sip, :snmp, :tftp].collect do |helper|
       [helper, "! #{helper}".to_sym]
     end.flatten)
   end
