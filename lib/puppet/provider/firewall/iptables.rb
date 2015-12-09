@@ -63,6 +63,7 @@ Puppet::Type.type(:firewall).provide :iptables, :parent => Puppet::Provider::Fir
     :dst_type           => "--dst-type",
     :gateway            => "--gateway",
     :gid                => "--gid-owner",
+    :helper             => '-m helper --helper',
     :icmp               => "-m icmp --icmp-type",
     :iniface            => "-i",
     :ipsec_dir          => "-m policy --dir",
@@ -239,7 +240,7 @@ Puppet::Type.type(:firewall).provide :iptables, :parent => Puppet::Provider::Fir
     :stat_mode, :stat_every, :stat_packet, :stat_probability,
     :src_range, :dst_range, :tcp_flags, :uid, :gid, :mac_source, :sport, :dport, :port,
     :src_type, :dst_type, :socket, :pkttype, :name, :ipsec_dir, :ipsec_policy,
-    :state, :ctstate, :icmp, :limit, :burst, :recent, :rseconds, :reap,
+    :state, :ctstate, :icmp, :limit, :burst, :recent, :rseconds, :reap, :helper,
     :rhitcount, :rttl, :rname, :mask, :rsource, :rdest, :ipset, :jump, :gateway, :set_mss, :todest,
     :tosource, :toports, :to, :checksum_fill, :random, :log_prefix, :log_level, :reject, :set_mark, :match_mark, :mss,
     :connlimit_above, :connlimit_mask, :connmark, :time_start, :time_stop, :month_days, :week_days, :date_start, :date_stop, :time_contiguous, :kernel_timezone
