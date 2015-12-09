@@ -372,7 +372,6 @@ Puppet::Type.newtype(:firewall) do
     newvalues(*[:tftp, :ftp].collect do |helper|
       [helper, "! #{helper}".to_sym]
     end.flatten)
-    defaultto "tftp"
   end
 
   # tcp-specific
