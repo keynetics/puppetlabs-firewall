@@ -363,6 +363,18 @@ Puppet::Type.newtype(:firewall) do
     defaultto "tcp"
   end
   
+  newproperty(:helper) do
+    desc <<-EOS
+      The specific helper to use for this rule. By default this is
+      *tftp*.
+    EOS
+
+    newvalues(*[:tftp, :ftp].collect do |helper|
+      [helper, "! #{helper}".to_sym]
+    end.flatten)
+    defaultto "tftp"
+  end
+
   # tcp-specific
   newproperty(:mss) do
     desc <<-EOS
